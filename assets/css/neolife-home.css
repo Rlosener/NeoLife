@@ -1,0 +1,447 @@
+.neolife-home .tp-hero-spacing-3 {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.neolife-home .tp-hero-spacing-3::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.08) 48%, rgba(0, 0, 0, 0) 76%);
+}
+
+.neolife-home .tp-hero-spacing-3 > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.neolife-home .tp-hero-spacing-3 > .tp-hero-badge {
+  z-index: 2;
+}
+
+.neolife-home .tp-hero-heading {
+  display: inline-block;
+  width: 100%;
+  padding: 34px 38px 30px;
+  border: 1px solid rgba(244, 240, 234, 0.52);
+  border-radius: 22px;
+  background: rgba(10, 10, 10, 0.48);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.neolife-home .tp-hero-heading .tp-hero-title-mid,
+.neolife-home .tp-hero-heading .tp-hero-deg {
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
+}
+
+.neolife-home .tp-hero-heading .tp-hero-title-mid {
+  max-width: 13ch;
+  font-size: clamp(58px, 4.8vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.neolife-home .tp-hero-heading .tp-hero-deg {
+  max-width: 58ch;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.neolife-home .tpservices__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1.1;
+}
+
+.neolife-home .neolife-service-icon {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  align-items: center;
+  justify-content: center;
+  color: var(--neolife-brand-deep);
+  border: 1px solid rgba(128, 98, 74, 0.2);
+  border-radius: 12px;
+  background: rgba(128, 98, 74, 0.1);
+}
+
+.neolife-home .neolife-service-icon i {
+  font-size: 19px;
+}
+
+.neolife-home .tpservices__main > .col-lg-4:first-child .neolife-service-icon {
+  color: var(--tp-white-color);
+  border-color: rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.neolife-home .tpservices {
+  display: flex;
+  min-height: 500px;
+  padding: 0;
+  flex-direction: column;
+}
+
+.neolife-home .tpservices__content {
+  display: flex;
+  width: 100%;
+  padding: 36px 42px 32px;
+  flex: 0 0 auto;
+  flex-direction: column;
+}
+
+.neolife-home .tpservices__img {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  width: 100%;
+  height: auto;
+  margin-top: auto;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  flex: 0 0 auto;
+  border-radius: 0 0 20px 20px;
+}
+
+.neolife-home .tpservices__main > .col-lg-4:first-child .tpservices .tpservices__img {
+  left: 0;
+  width: 100%;
+}
+
+.neolife-home .tpservices__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.neolife-home .neolife-service-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-top: 1px solid rgba(64, 64, 56, 0.1);
+  background: var(--neolife-brand-light);
+}
+
+.neolife-home .tpservices__main > .col-lg-4:nth-child(2) .neolife-service-visual {
+  background: #eee8df;
+}
+
+.neolife-home .tpservices__main > .col-lg-4:nth-child(3) .neolife-service-visual {
+  background: #f8f6f2;
+}
+
+.neolife-home .neolife-service-visual .neolife-service-illustration {
+  display: block;
+  width: min(88%, 280px);
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.neolife-home .neolife-service-visual .neolife-service-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.neolife-home .tpservices__main > .col-lg-4:first-child .neolife-service-photo {
+  object-position: center 57%;
+}
+
+.neolife-home .tpservices__main > .col-lg-4:nth-child(2) .neolife-service-photo {
+  object-position: center 62%;
+}
+
+.neolife-home .neolife-light-accent {
+  box-shadow: inset 0 4px 0 var(--neolife-brand-light);
+}
+
+.neolife-home .tp-fact-spacing,
+.neolife-home .tp-choose-bg,
+.neolife-home .tp-footer-area {
+  background-position: center;
+  background-size: cover;
+}
+
+.neolife-home .tp-about-image .anim-zoomin-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.neolife-home .tp-about-shape-parson {
+  width: 54%;
+  height: 72%;
+  object-fit: cover;
+  border: 6px solid rgba(255, 255, 255, 0.92);
+  border-radius: 20px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.16);
+}
+
+.neolife-home .project-slider-panel {
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+}
+
+.neolife-home .project-slider-panel::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.04) 48%, transparent 72%);
+}
+
+.neolife-home .project-slider-panel > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.neolife-home .tp-project-content {
+  display: inline-block;
+  max-width: 620px;
+  padding: 28px 32px 24px;
+  border: 1px solid rgba(244, 240, 234, 0.5);
+  border-radius: 20px;
+  background: rgba(10, 10, 10, 0.52);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.18);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.neolife-home .tp-project-content .tp-project-title,
+.neolife-home .tp-project-content p {
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.neolife-home .tp-project-logo-title {
+  display: flex;
+  align-items: center;
+  height: 112px;
+  line-height: 1;
+}
+
+.neolife-home .tp-project-logo-title img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.neolife-home .tp-project-meta span {
+  color: #ffffff;
+  border-color: rgba(244, 240, 234, 0.58);
+  background: rgba(10, 10, 10, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.neolife-home .tpexperts__shape img,
+.neolife-home .tpexperts__thumb img,
+.neolife-home .tpblogpost__thumb img {
+  object-fit: cover;
+}
+
+.neolife-home .tpblogpost__author-thumb {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.neolife-home .tpblogpost__author-thumb img {
+  object-fit: contain;
+  padding: 12px;
+}
+
+.neolife-home .tp-badge-circle a {
+  color: var(--tp-white-color);
+  background: rgba(10, 10, 10, 0.62);
+  border: 1px solid rgba(244, 240, 234, 0.5);
+}
+
+@media (max-width: 991.98px) {
+  .neolife-home .tp-hero-spacing-3 {
+    display: flex;
+    min-height: 0;
+    padding: 80px 30px 30px;
+    flex-direction: column;
+  }
+
+  .neolife-home .tp-hero-spacing-3 > .container {
+    order: 1;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .neolife-home .tp-hero-spacing-3 > .tp-hero-badge {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    order: 2;
+    align-self: flex-end;
+    margin-top: 20px;
+  }
+
+  .neolife-home .tp-hero-heading .tp-hero-title-mid {
+    max-width: 14ch;
+    font-size: clamp(42px, 6.5vw, 52px);
+  }
+
+  .neolife-home .tp-hero-heading .tp-hero-deg {
+    font-size: 18px;
+  }
+
+  .neolife-home .tpservices {
+    min-height: 430px;
+  }
+
+  .neolife-home .tpservices__content {
+    padding: 30px 35px 40px;
+  }
+
+  .neolife-home .tpservices__btn {
+    display: inline-flex;
+    max-width: 100%;
+    min-height: 24px;
+    align-items: center;
+    align-self: flex-start;
+    line-height: 1.2;
+  }
+
+  .neolife-home .tpservices__btn svg {
+    flex: 0 0 auto;
+  }
+
+  .neolife-home .tpservices__img {
+    width: 100%;
+  }
+
+  .neolife-home .neolife-service-visual {
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .neolife-home .tpservices__main > .col-lg-4:last-child {
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .neolife-home .tp-hero-spacing-3 {
+    min-height: 440px;
+    padding: 32px 16px clamp(160px, 45vw, 220px);
+  }
+
+  .neolife-home .tp-hero-spacing-3::before {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0.04) 100%);
+  }
+
+  .neolife-home .tp-hero-heading {
+    max-width: 420px;
+    padding: 18px 18px 16px;
+    border-radius: 16px;
+    background: rgba(10, 10, 10, 0.5);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
+  .neolife-home .tp-hero-heading .tp-hero-title-mid {
+    max-width: 20ch;
+    margin-bottom: 12px;
+    font-size: clamp(26px, 7vw, 30px);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+
+  .neolife-home .tp-hero-heading .tp-hero-deg {
+    margin-bottom: 0;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .neolife-home .tpservices {
+    min-height: 400px;
+  }
+
+  .neolife-home .tpservices__content {
+    padding: 30px 30px 40px;
+  }
+
+  .neolife-home .neolife-service-visual {
+    padding: 0;
+  }
+
+  .neolife-home .tp-choose-slide-wrap-2 {
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(10, 10, 10, 0.76) 100%),
+      url("../img/neolife/home/choose-helios.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .neolife-home .tp-choose-bg {
+    height: auto;
+    min-height: 0;
+    padding: 70px 0 38px;
+    background-image: none !important;
+  }
+
+  .neolife-home .tp-choose-bg::before {
+    display: none;
+  }
+
+  .neolife-home .tp-choose-wrap-spacing {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    z-index: 1;
+    margin: 0;
+    padding-bottom: 50px;
+  }
+
+  .neolife-home .tpchoose {
+    position: relative;
+    width: 100%;
+    transform: none !important;
+  }
+
+  .neolife-home .tp-project-content {
+    max-width: 96%;
+    padding: 18px 20px 16px;
+    border-radius: 16px;
+    background: rgba(10, 10, 10, 0.58);
+  }
+
+  .neolife-home .tp-project-logo-title {
+    height: 80px;
+  }
+
+  .neolife-home .tp-about-shape-parson {
+    bottom: -18px;
+    width: 58%;
+    height: 68%;
+    border-width: 4px;
+    border-radius: 14px;
+  }
+}

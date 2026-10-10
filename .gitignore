@@ -1,0 +1,41 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build
+dist/
+build/
+*.min.css
+*.min.js
+release/
+*.zip
+archive/source-backups/
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.production.local
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Cache
+.sass-cache/
+.cache/
+
+# CDN & Uploaded Files (if generated)
+uploads/
+cdn/

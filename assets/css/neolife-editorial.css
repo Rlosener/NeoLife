@@ -1,0 +1,55 @@
+/* Editorial content uses the existing NeoLife type, color and spacing tokens. */
+.neolife-editorial .tp-postbox-title,
+.neolife-editorial h2.tp-postbox-details-title {
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.16;
+  overflow-wrap: break-word;
+}
+.neolife-editorial h3.tp-postbox-details-title {
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.25;
+}
+.neolife-editorial .tp-postbox-details-content p {
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-wrap: break-word;
+}
+.neolife-editorial .tp-postbox-details-content a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.neolife-editorial .tp-postbox-thumb img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.neolife-editorial .tp-postbox-details-thumb img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.neolife-editorial figcaption {
+  padding-top: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--tp-body-color);
+}
+.neolife-editorial .tp-sidebar-author-avatar img {
+  padding: 14px;
+  background: var(--tp-white-color);
+  object-fit: contain;
+}
+.neolife-editorial .neolife-editorial-note {
+  padding: 22px;
+  border-radius: 16px;
+  background: var(--neolife-brand-light, #f4f0ea);
+}
+.neolife-editorial .neolife-editorial-note p {
+  margin: 0;
+  font-size: 15px;
+}
+.neolife-editorial .tp-postbox-details-wrap,
+.neolife-editorial .tprecentpost__content {
+  min-width: 0;
+}

@@ -1,0 +1,108 @@
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# These Apache 2.4 authorization rules are intentionally outside mod_rewrite.
+# An unsupported server fails deployment instead of silently publishing source artifacts.
+<If "%{REQUEST_URI} =~ m#^/(?:archive|\.idea|release|__MACOSX)(?:/|$)#i">
+Require all denied
+</If>
+<If "%{REQUEST_URI} =~ m#^/\.(?!well-known(?:/|$))#i">
+Require all denied
+</If>
+<If "%{REQUEST_URI} =~ m#^/(?!\.well-known(?:/|$)).*/\.#i">
+Require all denied
+</If>
+<FilesMatch "(?i:^(?:design-qa\.md|Arşiv\.zip|\.DS_Store)$|\.(?:zip|tar|gz|bak|backup|sql|log|map|scss)$)">
+Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Defense in depth: source, review and backup artifacts are never public.
+RewriteRule ^(?:archive|\.idea|release|__MACOSX)(?:/|$) - [F,L,NC]
+RewriteRule ^(?:design-qa\.md|Arşiv\.zip|\.DS_Store)$ - [F,L,NC]
+RewriteRule \.(?:zip|tar|gz|bak|backup|sql|log|map|scss)$ - [F,L,NC]
+RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L,NC]
+
+# Force HTTPS while remaining compatible with common cPanel reverse proxies.
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
+
+# Keep canonical clean routes slashless so relative assets always resolve from the site root.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L,NE]
+
+# Permanent redirects from legacy file URLs to public extensionless routes.
+RewriteCond %{THE_REQUEST} \s/+index(?:-3)?\.html(?:[?\s]) [NC]
+RewriteRule ^index(?:-3)?\.html$ / [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+about\.html(?:[?\s]) [NC]
+RewriteRule ^about\.html$ /hakkimizda [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+services-grid\.html(?:[?\s]) [NC]
+RewriteRule ^services-grid\.html$ /hizmetler [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+services-details\.html(?:[?\s]) [NC]
+RewriteRule ^services-details\.html$ /proje-gelistirme [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+project-grid\.html(?:[?\s]) [NC]
+RewriteRule ^project-grid\.html$ /projeler [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+project-details\.html(?:[?\s]) [NC]
+RewriteRule ^project-details\.html$ /panorama [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+project-helios\.html(?:[?\s]) [NC]
+RewriteRule ^project-helios\.html$ /helios [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+blog-standard\.html(?:[?\s]) [NC]
+RewriteRule ^blog-standard\.html$ /blog [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+blog-details\.html(?:[?\s]) [NC]
+RewriteRule ^blog-details\.html$ /kibrista-gayrimenkul-yatirimi [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+blog-girnede-yasam\.html(?:[?\s]) [NC]
+RewriteRule ^blog-girnede-yasam\.html$ /girnede-yasam [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+blog-insaat-kalitesi\.html(?:[?\s]) [NC]
+RewriteRule ^blog-insaat-kalitesi\.html$ /insaat-kalitesi [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+blog-kibris-konut-rehberi\.html(?:[?\s]) [NC]
+RewriteRule ^blog-kibris-konut-rehberi\.html$ /kibrista-konut-secimi [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+contact\.html(?:[?\s]) [NC]
+RewriteRule ^contact\.html$ /iletisim [R=301,L,NE]
+RewriteCond %{THE_REQUEST} \s/+faq\.html(?:[?\s]) [NC]
+RewriteRule ^faq\.html$ /sikca-sorulan-sorular [R=301,L,NE]
+
+# Internal route resolution; visitors keep the clean URL in the address bar.
+RewriteRule ^hakkimizda/?$ about.html [L]
+RewriteRule ^hizmetler/?$ services-grid.html [L]
+RewriteRule ^proje-gelistirme/?$ services-details.html [L]
+RewriteRule ^projeler/?$ project-grid.html [L]
+RewriteRule ^panorama/?$ project-details.html [L]
+RewriteRule ^helios/?$ project-helios.html [L]
+RewriteRule ^blog/?$ blog-standard.html [L]
+RewriteRule ^kibrista-gayrimenkul-yatirimi/?$ blog-details.html [L]
+RewriteRule ^girnede-yasam/?$ blog-girnede-yasam.html [L]
+RewriteRule ^insaat-kalitesi/?$ blog-insaat-kalitesi.html [L]
+RewriteRule ^kibrista-konut-secimi/?$ blog-kibris-konut-rehberi.html [L]
+RewriteRule ^iletisim/?$ contact.html [L]
+RewriteRule ^sikca-sorulan-sorular/?$ faq.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-XSS-Protection "0"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self' https://wa.me; upgrade-insecure-requests"
+Header always set Strict-Transport-Security "max-age=31536000" "expr=%{HTTPS} == 'on'"
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/css "access plus 30 days"
+ExpiresByType application/javascript "access plus 30 days"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType video/mp4 "access plus 30 days"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>
